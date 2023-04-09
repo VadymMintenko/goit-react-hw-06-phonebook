@@ -1,6 +1,18 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-export const Filter = ({ filter, searchContact }) => {
+// import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
+import { filterContact } from 'Redax/action';
+import { useDispatch } from 'react-redux';
+import { getFilter } from 'Redax/selectors';
+
+export const Filter = () => {
+  const dispatch = useDispatch();
+  const filter = useSelector(getFilter);
+
+  const searchContact = evt => {
+    dispatch(filterContact(evt.target.value.toLowerCase()));
+  };
+
   return (
     <div>
       <label>
@@ -16,7 +28,7 @@ export const Filter = ({ filter, searchContact }) => {
   );
 };
 
-Filter.propTypes = {
-  filter: PropTypes.string.isRequired,
-  searchContact: PropTypes.func.isRequired,
-};
+// Filter.propTypes = {
+//   filter: PropTypes.string.isRequired,
+//   searchContact: PropTypes.func.isRequired,
+// };

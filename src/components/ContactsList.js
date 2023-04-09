@@ -1,7 +1,23 @@
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
 import { ListContacts, ListItem, DeleteButton } from './ContactsForm.styled';
-export const ContactsList = ({ contacts, filter, onDeleteContact }) => {
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { deleteContact } from 'Redax/action';
+import { filterContact } from 'Redax/action';
+import { getContacts, getFilter } from 'Redax/selectors';
+
+export const ContactsList = () => {
+  const contacts = useSelector(getContacts);
+  const filter = useSelector(getFilter);
+
+  const dispatch = useDispatch();
+
+  const onDeleteContact = contactId => {
+    dispatch(deleteContact(contactId));
+    dispatch(filterContact(''));
+  };
+
   return (
     <>
       <ListContacts>
@@ -26,15 +42,15 @@ export const ContactsList = ({ contacts, filter, onDeleteContact }) => {
   );
 };
 
-ContactsList.propTypes = {
-  filter: PropTypes.string,
-  contacts: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      number: PropTypes.string.isRequired,
-      id: PropTypes.string.isRequired,
-    })
-  ).isRequired,
+// ContactsList.propTypes = {
+//   filter: PropTypes.string,
+//   contacts: PropTypes.arrayOf(
+//     PropTypes.shape({
+//       name: PropTypes.string.isRequired,
+//       number: PropTypes.string.isRequired,
+//       id: PropTypes.string.isRequired,
+//     })
+//   ).isRequired,
 
-  onDeleteContact: PropTypes.func.isRequired,
-};
+//   onDeleteContact: PropTypes.func.isRequired,
+// };
