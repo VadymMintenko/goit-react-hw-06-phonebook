@@ -3,8 +3,8 @@ import { nanoid } from 'nanoid';
 import { ListContacts, ListItem, DeleteButton } from './ContactsForm.styled';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { deleteContact } from 'Redax/action';
-import { filterContact } from 'Redax/action';
+import { deleteContact } from '../Redax/contactSlice';
+import { filterContact } from '../Redax/contactSlice';
 import { getContacts, getFilter } from 'Redax/selectors';
 
 export const ContactsList = () => {

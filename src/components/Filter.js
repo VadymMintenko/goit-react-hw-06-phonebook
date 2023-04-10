@@ -1,7 +1,7 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
-import { filterContact } from 'Redax/action';
+import { filterContact } from '../Redax/contactSlice';
 import { useDispatch } from 'react-redux';
 import { getFilter } from 'Redax/selectors';
 
