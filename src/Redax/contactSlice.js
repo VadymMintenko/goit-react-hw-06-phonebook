@@ -30,7 +30,9 @@ export const contactsSlice = createSlice({
     },
     deleteContact: {
       reducer(state, action) {
-        state.contacts.filter(contact => contact.id !== action.payload);
+        state.contacts = state.contacts.filter(
+          contact => contact.id !== action.payload
+        );
       },
       prepare(contactId) {
         return {

@@ -6,7 +6,7 @@ import { Container, ContactsListSContainer } from './ContactsForm.styled';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { addContact } from '../Redax/ContactsSlice';
+import { addContact } from '../Redax/contactSlice';
 import { getContacts } from 'Redax/selectors';
 
 export const App = () => {
