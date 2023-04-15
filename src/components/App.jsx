@@ -3,7 +3,7 @@ import { ContactsForm } from './ContactsForm';
 import { Filter } from './Filter';
 import { nanoid } from 'nanoid';
 import { Container, ContactsListSContainer } from './ContactsForm.styled';
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { addContact } from '../Redax/contactSlice';
@@ -13,9 +13,9 @@ export const App = () => {
   const contacts = useSelector(getContacts);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    window.localStorage.setItem('contacts', JSON.stringify(contacts));
-  }, [contacts]);
+  // useEffect(() => {
+  //   window.localStorage.setItem('contacts', JSON.stringify(contacts));
+  // }, [contacts]);
 
   const handleSubmit = (values, { resetForm }) => {
     const newContact = {
